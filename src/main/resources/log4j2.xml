@@ -5,7 +5,7 @@
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
         </Console>
 
-        <ApplicationInsights name="ApplicationInsights" instrumentationKey="6f4c6a1d-e181-4f8e-b89c-c19bacfac1b2">
+        <ApplicationInsights name="ApplicationInsights" instrumentationKey="<APP INSIGHTS INSTRUMENTATION KEY>">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
         </ApplicationInsights>
     </Appenders>
