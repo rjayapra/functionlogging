@@ -14,7 +14,7 @@
         <java.version>17</java.version>
         <azure.functions.maven.plugin.version>1.37.0</azure.functions.maven.plugin.version>
         <azure.functions.java.library.version>3.1.0</azure.functions.java.library.version>
-        <functionAppName>functionlogosc</functionAppName>
+        <functionAppName>functionlogosc-win-rj</functionAppName>
         <spring.boot.version>3.3.5</spring.boot.version> <!-- Add this line -->
     </properties>
 
@@ -38,19 +38,35 @@
             <version>2.23.4</version>
             <scope>test</scope>
         </dependency>
-                
+        <!-- logging -->
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>applicationinsights-logging-log4j2</artifactId>
+            <version>2.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.24.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.24.3</version>
+        </dependency>
         <!-- Other dependencies -->
+        <!--
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-logging</artifactId>
-            <version>${spring.boot.version}</version> <!-- Add this line -->
+            <version>${spring.boot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
-            <version>${spring.boot.version}</version> <!-- Add this line -->
+            <version>${spring.boot.version}</version>
         </dependency>
-       
+       --> 
     </dependencies>
 
     <build>
@@ -71,14 +87,14 @@
                 <version>${azure.functions.maven.plugin.version}</version>
                 <configuration>
                     <!-- function app name -->
-                    <appName>${functionAppName}</appName>
+                    <appName>functionlogosc-win-rj</appName>
                     <!-- function app resource group -->
                     <resourceGroup>oscblobpoc</resourceGroup>
                     <!-- function app region-->
                     <!-- refers https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details#supported-regions for all valid values -->
                     <region>canadacentral</region>
                     <!-- function app service plan name -->
-                    <appServicePlanName>java-functions-app-service-plan</appServicePlanName>
+                    <appServicePlanName>java-windows-asp</appServicePlanName>
                     <!-- function pricingTier, default to be consumption if not specified -->
                     <!-- refers https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details#supported-pricing-tiers for all valid values -->
                     <!-- <pricingTier></pricingTier> -->
@@ -87,7 +103,7 @@
                     <!-- <disableAppInsights></disableAppInsights> -->
                     <runtime>
                         <!-- runtime os, could be windows, linux or docker-->
-                        <os>linux</os>
+                        <os>windows</os>
                         <javaVersion>17</javaVersion>
                     </runtime>
                     <appSettings>
